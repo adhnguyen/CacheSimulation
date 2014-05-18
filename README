@@ -1,0 +1,56 @@
+1. Build the cache simulator.
+ % cc -lm -o cachesim cache.c
+
+2. Test the cache simulator.
+ % gunzip -c traces/art.trace.gz | ./cachesim
+ % gunzip -c traces/[name of trace] | ./cachesim [cachesim args]
+
+ Example 1 
+ 
+> gunzip -c traces/art.trace.gz | ./cachesim -a 1 -s 16 -l 16 -mp 30 
+        Cache parameters: 
+        Cache Size (KB) 16 
+        Cache Associativity 1 
+        Cache Block Size (bytes) 16 
+        Miss penalty (cyc) 30 
+         
+        Simulation results: 
+                 execution time 21857966 cycles 
+                 instructions 5136716 
+                 memory accesses 1957764 
+                 overall miss rate 0.28 
+                 read miss rate 0.30 
+                 memory CPI 3.26 
+                 total CPI 4.26 
+                 average memory access time 8.54 cycles 
+                 
+        dirty evictions 60540 
+        load_misses 523277 
+        store_misses 30062 
+        load_hits 1208606 
+        store_hits 195819 
+ 
+Example 2 
+ 
+> gunzip -c  traces/mcf.trace.gz | ./cachesim -a 8 -s 64 -l 32 -mp 42 
+        Cache parameters: 
+        Cache Size (KB) 64 
+        Cache Associativity 8 
+        Cache Block Size (bytes) 32 
+        Miss penalty (cyc) 42 
+         
+        Simulation results: 
+                 execution time 143963250 cycles 
+                 instructions 19999998 
+                 memory accesses 6943857 
+                 overall miss rate 0.42 
+                 read miss rate 0.36 
+                 memory CPI 6.20 
+                 total CPI 7.20 
+                 average memory access time 17.85 cycles
+
+        dirty evictions 995694 
+        load_misses 2036666 
+        store_misses 867426 
+        load_hits 3552806 
+        store_hits 486959 
