@@ -1,5 +1,5 @@
 1. Build the cache simulator.
- % cc -lm -o cachesim cache.c
+ % cc -o cachesim cache.c -lm
 
 2. Test the cache simulator.
  % gunzip -c traces/art.trace.gz | ./cachesim
